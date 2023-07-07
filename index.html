@@ -31,6 +31,11 @@
         </form>
         <div class="weather">
             <div class="weather__row weather__row--up">
+                <div class="weather__icon">
+                    <img class="weather__img" src="/img/moon.svg" alt="weather icon">
+                </div>
+            </div>
+            <div class="weather__row weather__row--middle">
                 <div class="weather__item">
                     <i class="fa-solid fa-location-dot"></i>
                     <span class="weather__city"></span>
@@ -47,19 +52,19 @@
                 <div class="weather__item">
                     <i class="fa-solid fa-temperature-three-quarters"></i>
                     <span class="weather__text">Temperatura</span>
-                    <span class="weather__temperature"></span>
+                    <span class="weather__temperature weather--bold"></span>
                     <span class="weather__text">&#176;C</span>
                 </div>
                 <div class="weather__item">
                     <i class="fa-solid fa-cloud-rain"></i>
                     <span class="weather__text">Suma opadów</span>
-                    <span class="weather__totalPrecipitation"></span>
+                    <span class="weather__totalPrecipitation weather--bold"></span>
                     <span class="weather__text">ml</span>
                 </div>
                 <div class="weather__item">
                     <i class="fa-solid fa-gauge"></i>
                     <span class="weather__text">Ciśnienie</span>
-                    <span class="weather__pressure"></span>
+                    <span class="weather__pressure weather--bold"></span>
                     <span class="weather__text">mbar</span>
                 </div>
             </div>

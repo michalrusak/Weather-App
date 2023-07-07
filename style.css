@@ -6,9 +6,9 @@
 :root {
   --basic-font-size: 16px;
   --font-color: black;
-  --second-font-color: grey;
-  --main-bg-color: white;
-  --second-bg-color: bisque;
+  --second-font-color: #ccc;
+  --main-bg-color: rgb(212, 223, 157);
+  --second-bg-color: green;
   --button-bg-color: darkcyan;
   --warning-color: red;
 }
@@ -53,13 +53,19 @@
 }
 
 .form__label {
-  font-size: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .form__select {
-  padding: 5px 10px;
+  font-size: 1.1rem;
+  padding: 10px 15px;
   text-align: center;
   cursor: pointer;
+}
+
+.form__select:focus {
+  outline: none;
 }
 
 .form__select--outline {
@@ -71,8 +77,9 @@
   text-align: center;
 }
 .form__button {
+  font-size: 1.1rem;
   padding: 10px 20px;
-  background-color: var(--button-bg-color);
+  background-color: var(--second-bg-color);
   outline: none;
   border: 1px solid var(--font-color);
   border-radius: 2px;
@@ -105,9 +112,22 @@
 }
 
 .weather__row--up {
+  justify-content: center;
+}
+.weather__icon {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
+.weather__img {
+  width: 100%;
+}
+
+.weather__row--middle {
   justify-content: space-between;
   font-size: 1.5rem;
-  padding: 10px;
+  padding: 15px 10px;
   background-color: var(--second-bg-color);
 }
 .weather__row--down {
@@ -118,6 +138,9 @@
 .weather__small {
   font-size: 1rem;
   color: var(--second-font-color);
+}
+.weather--bold {
+  font-weight: 600;
 }
 
 .footer {

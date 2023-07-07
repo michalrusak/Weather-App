@@ -1,6 +1,4 @@
 const searchButton = document.querySelector(".form__button");
-const basicURL = "https://danepubliczne.imgw.pl/api/data/synop/station";
-
 const citySpan = document.querySelector(".weather__city");
 const dateSpan = document.querySelector(".weather__date");
 const timeSpan = document.querySelector(".weather__time");
@@ -9,10 +7,11 @@ const totalPrecipitationSpan = document.querySelector(
   ".weather__totalPrecipitation"
 );
 const pressureSpan = document.querySelector(".weather__pressure");
-
 const weatherDiv = document.querySelector(".weather");
-
 const formSelect = document.querySelector(".form__select");
+const weatherImg = document.querySelector(".weather__img");
+
+const basicURL = "https://danepubliczne.imgw.pl/api/data/synop/station";
 
 const getWeather = async (e) => {
   e.preventDefault();
@@ -32,7 +31,7 @@ const getWeather = async (e) => {
     saveToLocalStorage(data);
   } else {
     formSelect.classList.add("form__select--outline");
-    alert("sprawdź czy wybrałeś miasto");
+    alert("Sprawdź czy wybrałeś miasto!");
   }
 };
 
@@ -59,6 +58,8 @@ const showData = (data) => {
   totalPrecipitationSpan.textContent = suma_opadu;
   pressureSpan.textContent = cisnienie;
 
+  showIcon(godzina_pomiaru, temperatura, suma_opadu);
+
   weatherDiv.classList.add("weather--active");
 };
 
@@ -75,6 +76,19 @@ const readFromLocalStorage = () => {
 const getYear = () => {
   const footerYearSpan = document.querySelector(".footer__year");
   footerYearSpan.innerText = new Date().getFullYear();
+};
+
+const showIcon = (godzina_pomiaru, temperatura, suma_opadu) => {
+  if (godzina_pomiaru > 7 && godzina_pomiaru < 21 && temperatura > 20) {
+    weatherImg.src = "/img/sun.svg";
+    weatherImg.alt = "sun";
+  } else if (godzina_pomiaru < 7 && godzina_pomiaru > 21) {
+    weatherImg.src = "/img/moon.svg";
+    weatherImg.alt = "moon";
+  } else if (suma_opadu > 2) {
+    weatherImg.src = "/img/rain.svg";
+    weatherImg.alt = "rain";
+  }
 };
 
 window.addEventListener("load", () => {

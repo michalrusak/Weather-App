@@ -12,7 +12,19 @@
     <header class="header">
         <h1 class="header__title">Pogoda</h1>
     </header>
-    <main class="main"></main>
+    <main class="main">
+        <form class="form">
+            <label for="city" class="form__label">Wybierz miasto: </label>
+            <select class="form__city" name="city" form="form">
+                <option disabled selected value> -- Wybierz miasto z listy -- </option>
+                <option value="kielce">Kielce</option>
+                <option value="krakow">Kraków</option>
+                <option value="lublin">Lublin</option>
+            </select>
+            <input class="form__button" type="submit" value="Wyszukaj">
+        </form>
+        <div class="weather"></div>
+    </main>
     <footer class="footer">
         <div class="footer__text">Weather App <span class="footer__year"></span></div>
     </footer>

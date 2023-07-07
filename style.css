@@ -38,6 +38,7 @@
   min-height: 80vh;
   color: var(--font-color);
   background-color: var(--main-bg-color);
+  overflow: hidden;
 }
 
 .form {
@@ -49,7 +50,6 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border: 2px solid gray;
 }
 
 .form__label {
@@ -91,8 +91,7 @@
   align-items: stretch;
   width: 60%;
   min-width: 400px;
-  min-height: 35vh;
-  border: 2px solid gray;
+  min-height: 15vh;
 }
 
 .weather--active {
@@ -132,4 +131,17 @@
 }
 .footer__text {
   font-size: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .weather {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .weather__row {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

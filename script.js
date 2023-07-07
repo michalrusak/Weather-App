@@ -24,6 +24,10 @@ const getWeather = async (e) => {
 
   if (city) {
     const data = await fetchData(city);
+    if (data.status === false) {
+      alert("Błąd połączenia. Spróbuj ponownie później!");
+      return;
+    }
     showData(data);
     saveToLocalStorage(data);
   } else {

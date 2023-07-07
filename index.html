@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Pogoda</title>
 </head>
@@ -14,16 +17,50 @@
     </header>
     <main class="main">
         <form class="form">
-            <label for="city" class="form__label">Wybierz miasto: </label>
-            <select class="form__city" name="city" form="form">
-                <option disabled selected value> -- Wybierz miasto z listy -- </option>
-                <option value="kielce">Kielce</option>
-                <option value="krakow">Kraków</option>
-                <option value="lublin">Lublin</option>
+            <label for="city" class="form__label">Wybierz miasto:</label>
+            <select class="form__city" name="city" id="city" form="form">
+                <option class="form__option" disabled selected value>Wybierz:</option>
+                <option class="form__option" value="kielce">Kielce</option>
+                <option class="form__option" value="krakow">Kraków</option>
+                <option class="form__option" value="lublin">Lublin</option>
             </select>
             <input class="form__button" type="submit" value="Wyszukaj">
         </form>
-        <div class="weather"></div>
+        <div class="weather">
+            <div class="weather__row weather__row--up">
+                <div class="weather__item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="weather__city"></span>
+                </div>
+                <div class="weather__item">
+                    <span class="weather__small">Stan na dzień:</span>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span class="weather__date"></span>
+                    <span class="weather__time"></span>
+                </div>
+            </div>
+
+            <div class="weather__row weather__row--down">
+                <div class="weather__item">
+                    <i class="fa-solid fa-temperature-three-quarters"></i>
+                    <span class="weather__text">Temperatura</span>
+                    <span class="weather__temperature"></span>
+                    <span class="weather__text">&#176;C</span>
+                </div>
+                <div class="weather__item">
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    <span class="weather__text">Suma opadów</span>
+                    <span class="weather__totalPrecipitation"></span>
+                    <span class="weather__text">ml</span>
+                </div>
+                <div class="weather__item">
+                    <i class="fa-solid fa-gauge"></i>
+                    <span class="weather__text">Ciśnienie</span>
+                    <span class="weather__pressure"></span>
+                    <span class="weather__text">mbar</span>
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer__text">Weather App <span class="footer__year"></span></div>

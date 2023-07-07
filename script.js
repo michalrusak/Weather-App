@@ -9,7 +9,8 @@ const totalPrecipitationSpan = document.querySelector(
 const pressureSpan = document.querySelector(".weather__pressure");
 const weatherDiv = document.querySelector(".weather");
 const formSelect = document.querySelector(".form__select");
-const weatherImg = document.querySelector(".weather__img");
+// const weatherImg = document.querySelector(".weather__img");
+const weatherIcon = document.querySelector(".weather__icon");
 
 const basicURL = "https://danepubliczne.imgw.pl/api/data/synop/station";
 
@@ -80,14 +81,19 @@ const getYear = () => {
 
 const showIcon = (godzina_pomiaru, temperatura, suma_opadu) => {
   if (godzina_pomiaru > 7 && godzina_pomiaru < 21 && temperatura > 20) {
-    weatherImg.src = "/img/sun.svg";
-    weatherImg.alt = "sun";
-  } else if (godzina_pomiaru < 7 && godzina_pomiaru > 21) {
-    weatherImg.src = "/img/moon.svg";
-    weatherImg.alt = "moon";
-  } else if (suma_opadu > 2) {
-    weatherImg.src = "/img/rain.svg";
-    weatherImg.alt = "rain";
+    // weatherImg.src = "/img/sun.svg";
+    // weatherImg.alt = "sun";
+    weatherIcon.innerHTML = `<i class="fa-solid fa-sun" name="sun"></i>`;
+  }
+  if (godzina_pomiaru < 7 || godzina_pomiaru > 21) {
+    // weatherImg.src = "/img/moon.svg";
+    // weatherImg.alt = "moon";
+    weatherIcon.innerHTML = `<i class="fa-solid fa-moon" name="moon"></i>`;
+  }
+  if (suma_opadu > 2) {
+    // weatherImg.src = "/img/rain.svg";
+    // weatherImg.alt = "rain";
+    weatherIcon.innerHTML = `<i class="fa-solid fa-cloud-rain" name="rain"></i>`;
   }
 };
 

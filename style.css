@@ -115,13 +115,8 @@
   justify-content: center;
 }
 .weather__icon {
-  width: 100px;
-  height: 100px;
+  font-size: 5rem;
   padding: 5px;
-}
-
-.weather__img {
-  width: 100%;
 }
 
 .weather__row--middle {

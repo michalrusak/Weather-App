@@ -6,6 +6,7 @@
 :root {
   --basic-font-size: 16px;
   --font-color: black;
+  --second-font-color: grey;
   --main-bg-color: white;
   --second-bg-color: bisque;
   --button-bg-color: darkcyan;
@@ -55,11 +56,17 @@
   font-size: 1rem;
 }
 
-.form__city {
+.form__select {
   padding: 5px 10px;
   text-align: center;
   cursor: pointer;
 }
+
+.form__select--outline {
+  border: 2px solid var(--warning-color);
+  box-shadow: 0px 0px 5px var(--warning-color);
+}
+
 .form__option {
   text-align: center;
 }
@@ -77,14 +84,19 @@
 }
 
 .weather {
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
-  width: 50%;
+  width: 60%;
   min-width: 400px;
   min-height: 35vh;
   border: 2px solid gray;
+}
+
+.weather--active {
+  visibility: visible;
 }
 
 .weather__row {
@@ -106,6 +118,7 @@
 }
 .weather__small {
   font-size: 1rem;
+  color: var(--second-font-color);
 }
 
 .footer {

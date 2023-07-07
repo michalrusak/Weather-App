@@ -10,15 +10,24 @@ const totalPrecipitationSpan = document.querySelector(
 );
 const pressureSpan = document.querySelector(".weather__pressure");
 
+const weatherDiv = document.querySelector(".weather");
+
+const formSelect = document.querySelector(".form__select");
+
 const getWeather = async (e) => {
   e.preventDefault();
-  const city = document.querySelector(".form__city").value;
-  console.log(city);
+  if (formSelect.classList.contains("form__select--outline")) {
+    formSelect.classList.remove("form__select--outline");
+  }
+
+  const city = document.querySelector(".form__select").value;
+
   if (city) {
     const data = await fetchData(city);
-    console.log(data);
     showData(data);
+    saveToLocalStorage(data);
   } else {
+    formSelect.classList.add("form__select--outline");
     alert("sprawdź czy wybrałeś miasto");
   }
 };
@@ -45,9 +54,19 @@ const showData = (data) => {
   temperatureSpan.textContent = temperatura;
   totalPrecipitationSpan.textContent = suma_opadu;
   pressureSpan.textContent = cisnienie;
+
+  weatherDiv.classList.add("weather--active");
 };
 
-searchButton.addEventListener("click", getWeather);
+const saveToLocalStorage = (data) => {
+  localStorage.removeItem("weather");
+  localStorage.setItem("weather", JSON.stringify(data));
+};
+
+const readFromLocalStorage = () => {
+  const data = localStorage.getItem("weather");
+  return JSON.parse(data);
+};
 
 const getYear = () => {
   const footerYearSpan = document.querySelector(".footer__year");
@@ -56,4 +75,11 @@ const getYear = () => {
 
 window.addEventListener("load", () => {
   getYear();
+
+  if (localStorage.getItem("weather")) {
+    const data = readFromLocalStorage();
+    showData(data);
+  }
 });
+
+searchButton.addEventListener("click", getWeather);

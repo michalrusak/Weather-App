@@ -9,10 +9,16 @@ const totalPrecipitationSpan = document.querySelector(
 const pressureSpan = document.querySelector(".weather__pressure");
 const weatherDiv = document.querySelector(".weather");
 const formSelect = document.querySelector(".form__select");
-// const weatherImg = document.querySelector(".weather__img");
 const weatherIcon = document.querySelector(".weather__icon");
 
 const basicURL = "https://danepubliczne.imgw.pl/api/data/synop/station";
+
+const iconSun = document.querySelector(".weather__icon--sun");
+const iconRain = document.querySelector(".weather__icon--rain");
+const iconCloud = document.querySelector(".weather__icon--cloud");
+const iconMoon = document.querySelector(".weather__icon--moon");
+
+const icons = document.querySelectorAll(".weather--icon");
 
 const getWeather = async (e) => {
   e.preventDefault();
@@ -80,20 +86,20 @@ const getYear = () => {
 };
 
 const showIcon = (godzina_pomiaru, temperatura, suma_opadu) => {
+  icons.forEach((element) => {
+    if (element.classList.contains("weather__icon--active")) {
+      element.classList.remove("weather__icon--active");
+    }
+  });
+
   if (godzina_pomiaru > 7 && godzina_pomiaru < 21 && temperatura > 20) {
-    // weatherImg.src = "/img/sun.svg";
-    // weatherImg.alt = "sun";
-    weatherIcon.innerHTML = `<i class="fa-solid fa-sun" name="sun"></i>`;
-  }
-  if (godzina_pomiaru < 7 || godzina_pomiaru > 21) {
-    // weatherImg.src = "/img/moon.svg";
-    // weatherImg.alt = "moon";
-    weatherIcon.innerHTML = `<i class="fa-solid fa-moon" name="moon"></i>`;
-  }
-  if (suma_opadu > 2) {
-    // weatherImg.src = "/img/rain.svg";
-    // weatherImg.alt = "rain";
-    weatherIcon.innerHTML = `<i class="fa-solid fa-cloud-rain" name="rain"></i>`;
+    iconSun.classList.add("weather__icon--active");
+  } else if (suma_opadu > 2) {
+    iconRain.classList.add("weather__icon--active");
+  } else if (temperatura < 10) {
+    iconCloud.classList.add("weather__icon--active");
+  } else if (godzina_pomiaru < 7 || godzina_pomiaru > 21) {
+    iconMoon.classList.add("weather__icon--active");
   }
 };
 

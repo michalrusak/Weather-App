@@ -11,6 +11,8 @@
   --second-bg-color: green;
   --button-bg-color: darkcyan;
   --warning-color: red;
+  --yellow: yellow;
+  --blue: blue;
 }
 .body {
   font-size: var(--basic-font-size);
@@ -114,9 +116,27 @@
 .weather__row--up {
   justify-content: center;
 }
+
 .weather__icon {
+  display: none;
   font-size: 5rem;
   padding: 5px;
+}
+
+.weather__icon--sun {
+  color: var(--yellow);
+}
+.weather__icon--moon {
+  color: var(--yellow);
+}
+.weather__icon--rain {
+  color: var(--blue);
+}
+.weather__icon--cloud {
+  color: var(--second-font-color);
+}
+.weather__icon--active {
+  display: block;
 }
 
 .weather__row--middle {

@@ -64,6 +64,7 @@
   font-size: 1.1rem;
   padding: 10px 15px;
   text-align: center;
+  color: var(--basic-font-size);
   cursor: pointer;
 }
 
@@ -84,6 +85,7 @@
   padding: 10px 20px;
   background-color: var(--second-bg-color);
   outline: none;
+  color: var(--basic-font-size);
   border: 1px solid var(--font-color);
   border-radius: 2px;
   cursor: pointer;
@@ -120,9 +122,14 @@
 }
 
 .weather__row--up {
+  position: relative;
   justify-content: center;
-  min-height: 110px;
+  min-height: 180px;
   margin: 10px 0;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  background-color: var(--main-bg-color);
 }
 
 .weather__icon {
@@ -132,6 +139,13 @@
   font-size: 5rem;
   padding: 5px;
   animation: scaleAnimation 15s linear infinite;
+}
+
+.weather__dark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .weather__icon--sun {
@@ -144,12 +158,11 @@
 .weather__icon--moon {
   color: var(--yellow);
 }
-.weather__icon--rain {
-  color: var(--blue);
-}
+.weather__icon--rain,
 .weather__icon--cloud {
   color: var(--blue);
 }
+
 .weather__icon--active {
   display: flex;
 }

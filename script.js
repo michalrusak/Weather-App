@@ -108,7 +108,7 @@ const showIcon = (godzina_pomiaru, temperatura, suma_opadu) => {
 };
 
 const showImg = (city) => {
-  bgImg.style.backgroundImage = `url("/img/${city}.jpeg")`;
+  bgImg.style.backgroundImage = `url("./img/${city}.jpeg")`;
 };
 
 window.addEventListener("load", () => {

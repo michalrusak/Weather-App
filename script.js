@@ -96,13 +96,13 @@ const showIcon = (godzina_pomiaru, temperatura, suma_opadu) => {
     }
   });
 
-  if (godzina_pomiaru > 7 && godzina_pomiaru < 21 && temperatura > 20) {
+  if (godzina_pomiaru > 7 && godzina_pomiaru < 21 && temperatura >= 10) {
     iconSun.classList.add("weather__icon--active");
   } else if (suma_opadu > 2) {
     iconRain.classList.add("weather__icon--active");
   } else if (temperatura < 10) {
     iconCloud.classList.add("weather__icon--active");
-  } else if (godzina_pomiaru < 7 || godzina_pomiaru > 21) {
+  } else if (godzina_pomiaru <= 7 || godzina_pomiaru >= 21) {
     iconMoon.classList.add("weather__icon--active");
   }
 };
